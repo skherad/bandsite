@@ -1,0 +1,34 @@
+// breakpoints
+$breakpoint-tablet:768px;
+$breakpoint-desktop:1280px;
+
+// primary colors
+$primary-color-text--dark:#323232;
+$secondary-color-text: #AFAFAF;
+$primary-color-text--light:#FFFFFF;
+
+// secondary colors
+$secondary-color-cta-hover: #000000;
+$secondary-color-divider: #E1E1E1;
+$secondary-color-alt: #fafafa;
+
+// fonts
+@font-face {
+    font-family: 'Avenir Next Regular';
+    src: url('AvenirNextLTPro-Regular.woff2') format('woff2'),
+        url('AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir Next Bold';
+    src: url('../../assets/font/AvenirNextLTPro-Bold.woff2') format('woff2'),
+        url('../../assets/font/AvenirNextLTPro-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir Next Demi';
+    src: url('AvenirNextLTPro-Demi.woff2') format('woff2'),
+        url('AvenirNextLTPro-Demi.woff') format('woff');
+}
+
+
