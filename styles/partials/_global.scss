@@ -1,7 +1,119 @@
+@use './variables' as *;
+@use './mixin' as *;
+
+
+// resets
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
     margin:0;
+    font-family: 'AvenirNext';
+}
+
+
+// header styles
+.header {
+    background-color: $primary-color-text--dark;
+    @include flex-center(space-between);
+    flex-direction: column;
+    padding-top: .5rem;
+    
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 6rem;
+    }
+
+    // wordmark
+    &__wordmark {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 400;
+        margin: 0 0 0.5rem;
+        text-align: center;
+
+        @include tablet {
+            margin-bottom: 0;
+            margin-right: 2rem;
+            line-height: 4.25rem;
+        }
+    }
+    
+     // header links
+     &__link {
+        color: $secondary-color-text;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        padding-bottom: 0.5rem;
+        
+        // selected nav link
+        &--selected {
+            border-bottom: 4px $primary-color-text--light solid;
+            color: $primary-color-text--light;
+        }
+
+        &--wordmark {
+            color: $primary-color-text--light;
+            padding: 0;
+        }
+    }
+
+    // navigation
+    &__nav {
+        width: 100%;
+    }
+    &__list {
+        @include flex-center(space-between);
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 1rem;
+            justify-content: flex-start;
+        }
+    }
+
+
+    &__item {
+        width: 50%;
+        text-align: center;
+        
+        @include tablet {
+            width: fit-content;
+            margin-left: 3rem;
+        }
+
+        @include desktop{
+            padding: 2rem 0;
+        }
+    }   
+}
+
+// hero styles
+.hero {
+    background-image: url('../../assets/images/hero-bio.jpg');
+    background-size: cover;
+    height: 60vw;
+
+    &__overlay {
+        background-color: $primary-color-text--dark;
+        opacity: 50%;
+    }
+    &__title {
+        margin: 0;
+        color: $primary-color-text--light;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 }

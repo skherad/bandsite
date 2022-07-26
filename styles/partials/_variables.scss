@@ -3,7 +3,7 @@ $breakpoint-tablet:768px;
 $breakpoint-desktop:1280px;
 
 // primary colors
-$primary-color-text--dark:#323232;
+$primary-color-text--dark:#323232; 
 $secondary-color-text: #AFAFAF;
 $primary-color-text--light:#FFFFFF;
 
@@ -14,21 +14,22 @@ $secondary-color-alt: #fafafa;
 
 // fonts
 @font-face {
-    font-family: 'Avenir Next Regular';
-    src: url('AvenirNextLTPro-Regular.woff2') format('woff2'),
-        url('AvenirNextLTPro-Regular.woff') format('woff');
+    font-family: 'AvenirNext';
+    src: url('../../assets/font/AvenirNextLTPro-Regular.otf') format('opentype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Avenir Next Bold';
-    src: url('../../assets/font/AvenirNextLTPro-Bold.woff2') format('woff2'),
-        url('../../assets/font/AvenirNextLTPro-Bold.woff') format('woff');
+    font-family: 'AvenirNext';
+    src: url('../../assets/font/AvenirNextLTPro-Demi.otf') format('opentype');
+    font-weight: 600;
 }
 
 @font-face {
-    font-family: 'Avenir Next Demi';
-    src: url('AvenirNextLTPro-Demi.woff2') format('woff2'),
-        url('AvenirNextLTPro-Demi.woff') format('woff');
+    font-family: 'AvenirNext';
+    src: url('../../assets/font/AvenirNextLTPro-Bold.otf') format('opentype');
+    font-weight: 700;
 }
+
 
 
