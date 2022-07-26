@@ -29,6 +29,9 @@ body {
   justify-content: space-between;
   flex-direction: column;
   padding-top: 0.5rem;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 @media (min-width: 768px) {
   .header {
@@ -113,6 +116,12 @@ body {
   background-image: url("../../assets/images/hero-bio.jpg");
   background-size: cover;
   height: 60vw;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   display: flex;
   align-items: center;
 }
@@ -130,4 +139,34 @@ body {
   font-weight: 600;
   padding-left: 1rem;
   position: absolute;
+}
+
+.about {
+  color: #323232;
+  padding: 1rem;
+}
+.about__header {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.about__subtitle {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.about__photo {
+  width: 100%;
+}
+.about__subheader {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.about__body {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  margin-right: 0.6rem;
 }/*# sourceMappingURL=bio.css.map */
