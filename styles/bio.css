@@ -155,6 +155,14 @@ body {
   font-weight: 600;
   font-style: normal;
 }
+.about__cite {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+  display: block;
+  margin: 0.6rem 0;
+}
 .about__photo {
   width: 100%;
 }
@@ -169,4 +177,24 @@ body {
   line-height: 1.125rem;
   font-weight: 400;
   margin-right: 0.6rem;
+}
+
+.gallery {
+  padding: 1rem;
+  background-color: #fafafa;
+}
+.gallery__header {
+  color: #323232;
+  font-weight: 600;
+  line-height: 1.375rem;
+}
+.gallery__photos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gallery__photo {
+  width: 100%;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=bio.css.map */

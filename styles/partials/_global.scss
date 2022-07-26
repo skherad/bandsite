@@ -130,6 +130,7 @@ body {
 .about {
     color: $primary-color-text--dark;
     padding: 1rem;
+
     &__header {
         font-weight: 600;
         margin:0 0 1rem;
@@ -142,6 +143,14 @@ body {
         font-style: normal;
     }
 
+    &__cite {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+        font-style: normal;
+        display: block;
+        margin:0.6rem 0;
+    }
     &__photo {
         width: 100%;
     }
@@ -158,5 +167,30 @@ body {
         line-height: 1.125rem;
         font-weight: 400;
         margin-right: 0.6rem;
+    }
+}
+
+// photo gallery styles
+.gallery {
+    padding: 1rem;
+    background-color: $secondary-color-alt;
+    
+    &__header {
+    color: $primary-color-text--dark;
+        font-weight: 600;
+        // margin:0 0 1rem;
+        line-height: 1.375rem;
+    }
+
+    &__photos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    }
+    
+    &__photo {
+        width: 100%;
+        margin-bottom: 1rem;
     }
 }
