@@ -105,15 +105,22 @@ body {
     background-image: url('../../assets/images/hero-bio.jpg');
     background-size: cover;
     height: 60vw;
+    display: flex;
+    align-items: center;
 
     &__overlay {
         background-color: $primary-color-text--dark;
         opacity: 50%;
+        width: 100%;
+        height: 60vw;
+        position: absolute;
     }
     &__title {
         margin: 0;
         color: $primary-color-text--light;
         font-size: 1.5rem;
         font-weight: 600;
+        padding-left: 1rem ;
+        position: absolute;
     }
 }
