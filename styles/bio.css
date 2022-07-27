@@ -33,31 +33,14 @@ body {
   min-width: -moz-fit-content;
   min-width: fit-content;
 }
-@media (min-width: 768px) {
-  .header {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0 2rem;
-  }
-}
-@media (min-width: 1280px) {
-  .header {
-    padding: 0 6rem;
-  }
-}
 .header__wordmark {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 400;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
   margin: 0 0 0.5rem;
   text-align: center;
-}
-@media (min-width: 768px) {
-  .header__wordmark {
-    margin-bottom: 0;
-    margin-right: 2rem;
-    line-height: 4.25rem;
-  }
 }
 .header__link {
   color: #AFAFAF;
@@ -88,28 +71,9 @@ body {
   line-height: 1.375rem;
   font-weight: 600;
 }
-@media (min-width: 768px) {
-  .header__list {
-    font-size: 1rem;
-    justify-content: flex-start;
-  }
-}
 .header__item {
   width: 50%;
   text-align: center;
-}
-@media (min-width: 768px) {
-  .header__item {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: 3rem;
-  }
-}
-@media (min-width: 1280px) {
-  .header__item {
-    padding: 2rem 0;
-  }
 }
 
 .hero {
@@ -180,7 +144,7 @@ body {
 }
 
 .gallery {
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   background-color: #fafafa;
 }
 .gallery__header {
@@ -197,4 +161,58 @@ body {
 .gallery__photo {
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.footer {
+  background-color: #323232;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+}
+.footer__header {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
+  padding: 1rem 0;
+  font-weight: 600;
+}
+.footer__icons-container {
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.footer__contacts {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  padding: 1rem 0 2.5rem;
+}
+.footer__contact-card {
+  padding-bottom: 0.5rem;
+}
+.footer__card-title {
+  font-weight: 600;
+}
+.footer__address {
+  font-style: normal;
+}
+.footer__wordmark {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+  margin: 0 0 0.5rem;
+}
+.footer__wordmark--notmobile {
+  display: none;
+}
+.footer__copyright {
+  font-size: 0.625rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  padding-top: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */
