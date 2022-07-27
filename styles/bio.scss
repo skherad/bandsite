@@ -1,1 +1,174 @@
 @use './partials/global' as *;
+@use './partials/variables' as *;
+@use './partials/mixin' as *;
+
+
+// hero styles
+.hero {
+    background-image: url('../../assets/images/hero-bio.jpg');
+    background-size: cover;
+    height: 60vw;
+    min-width: fit-content;
+    min-height: fit-content;
+    display: flex;
+    align-items: center;
+
+    &__overlay {
+        background-color: $primary-color-text--dark;
+        opacity: 50%;
+        width: 100%;
+        height: 60vw;
+        position: absolute;
+    }
+    &__title {
+        margin: 0;
+        color: $primary-color-text--light;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-left: 1rem ;
+        position: absolute;
+
+        @include tablet {
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+            font-weight: 600;
+            padding-left: 2rem;
+        }
+    }
+}
+
+.about {
+    color: $primary-color-text--dark;
+    padding: 1rem;
+
+    @include tablet {
+        padding: 2rem;
+    }
+    &__header {
+        font-weight: 600;
+        margin:0 0 1rem;
+
+        @include tablet {
+            font-size: 2.25rem;
+            line-height: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__content {
+        padding: 0 3rem;
+    }
+
+    &__subtitle {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+        font-style: normal;
+
+        @include tablet{
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+    }
+
+    &__cite {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+        font-style: normal;
+        display: block;
+        margin:0.6rem 0;
+
+        @include tablet{
+            font-size: 1rem;
+            line-height: 2rem;
+        }
+    }
+    &__photo {
+        width: 100%;
+
+        @include tablet {
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &__subheader {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+        font-style: normal;
+
+        @include tablet {
+            font-size: 1.5rem;
+            margin: 3rem 0 1rem;
+        }
+    }
+
+    &__body-container {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }    
+    }
+
+    &__body {
+        font-size: .8125rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+        margin-right: 0.6rem;
+
+        @include tablet {
+            font-size: .875rem;
+            line-height: 1.375rem;
+            width: 47%;
+        }
+    }
+
+
+}
+
+// photo gallery styles
+.gallery {
+    padding: 1rem 1rem 0;
+    background-color: $secondary-color-alt;
+
+    @include tablet {
+        padding-bottom: 2rem;
+    }
+    
+    &__header {
+    color: $primary-color-text--dark;
+        font-weight: 600;
+        // margin:0 0 1rem;
+        line-height: 1.375rem;
+
+        @include tablet {
+            font-size: 2.25rem;
+            line-height: 2.75rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__photos-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+    
+    &__photo {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            width: 30%;
+            margin: 0.5rem;
+        }
+    }
+}

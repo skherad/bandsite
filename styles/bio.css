@@ -29,25 +29,40 @@ body {
   justify-content: space-between;
   flex-direction: column;
   padding-top: 0.5rem;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
+}
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 2rem;
+    padding-top: 16px;
+    align-items: center;
+  }
 }
 .header__wordmark {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 400;
-  max-height: 1.25rem;
   max-width: 7.5rem;
-  margin: 0 0 0.5rem;
+  margin: 0;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .header__wordmark {
+    padding-bottom: 0.75rem;
+  }
 }
 .header__link {
   color: #AFAFAF;
   text-decoration: none;
   width: 100%;
   display: block;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
+}
+@media (min-width: 768px) {
+  .header__link {
+    padding-bottom: 1rem;
+  }
 }
 .header__link--selected {
   border-bottom: 4px #FFFFFF solid;
@@ -59,6 +74,11 @@ body {
 }
 .header__nav {
   width: 100%;
+}
+@media (min-width: 768px) {
+  .header__nav {
+    width: auto;
+  }
 }
 .header__list {
   display: flex;
@@ -75,92 +95,11 @@ body {
   width: 50%;
   text-align: center;
 }
-
-.hero {
-  background-image: url("../../assets/images/hero-bio.jpg");
-  background-size: cover;
-  height: 60vw;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-  display: flex;
-  align-items: center;
-}
-.hero__overlay {
-  background-color: #323232;
-  opacity: 50%;
-  width: 100%;
-  height: 60vw;
-  position: absolute;
-}
-.hero__title {
-  margin: 0;
-  color: #FFFFFF;
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding-left: 1rem;
-  position: absolute;
-}
-
-.about {
-  color: #323232;
-  padding: 1rem;
-}
-.about__header {
-  font-weight: 600;
-  margin: 0 0 1rem;
-}
-.about__subtitle {
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 600;
-  font-style: normal;
-}
-.about__cite {
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 600;
-  font-style: normal;
-  display: block;
-  margin: 0.6rem 0;
-}
-.about__photo {
-  width: 100%;
-}
-.about__subheader {
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 600;
-  font-style: normal;
-}
-.about__body {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-  margin-right: 0.6rem;
-}
-
-.gallery {
-  padding: 1rem 1rem 0;
-  background-color: #fafafa;
-}
-.gallery__header {
-  color: #323232;
-  font-weight: 600;
-  line-height: 1.375rem;
-}
-.gallery__photos-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.gallery__photo {
-  width: 100%;
-  margin-bottom: 1rem;
+@media (min-width: 768px) {
+  .header__item {
+    width: auto;
+    margin-left: 3rem;
+  }
 }
 
 .footer {
@@ -203,7 +142,6 @@ body {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 400;
-  max-height: 1.25rem;
   max-width: 7.5rem;
   margin: 0 0 0.5rem;
 }
@@ -214,5 +152,175 @@ body {
   font-size: 0.625rem;
   line-height: 1.125rem;
   font-weight: 400;
-  padding-top: 0.5rem;
+}
+
+.hero {
+  background-image: url("../../assets/images/hero-bio.jpg");
+  background-size: cover;
+  height: 60vw;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  display: flex;
+  align-items: center;
+}
+.hero__overlay {
+  background-color: #323232;
+  opacity: 50%;
+  width: 100%;
+  height: 60vw;
+  position: absolute;
+}
+.hero__title {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-left: 1rem;
+  position: absolute;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    font-weight: 600;
+    padding-left: 2rem;
+  }
+}
+
+.about {
+  color: #323232;
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .about {
+    padding: 2rem;
+  }
+}
+.about__header {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+@media (min-width: 768px) {
+  .about__header {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+.about__content {
+  padding: 0 3rem;
+}
+.about__subtitle {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+}
+@media (min-width: 768px) {
+  .about__subtitle {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
+.about__cite {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+  display: block;
+  margin: 0.6rem 0;
+}
+@media (min-width: 768px) {
+  .about__cite {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+}
+.about__photo {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .about__photo {
+    margin-bottom: 1.6rem;
+  }
+}
+.about__subheader {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-style: normal;
+}
+@media (min-width: 768px) {
+  .about__subheader {
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .about__body-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.about__body {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  margin-right: 0.6rem;
+}
+@media (min-width: 768px) {
+  .about__body {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    width: 47%;
+  }
+}
+
+.gallery {
+  padding: 1rem 1rem 0;
+  background-color: #fafafa;
+}
+@media (min-width: 768px) {
+  .gallery {
+    padding-bottom: 2rem;
+  }
+}
+.gallery__header {
+  color: #323232;
+  font-weight: 600;
+  line-height: 1.375rem;
+}
+@media (min-width: 768px) {
+  .gallery__header {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    margin-bottom: 1rem;
+  }
+}
+.gallery__photos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .gallery__photos-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+.gallery__photo {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .gallery__photo {
+    width: 30%;
+    margin: 0.5rem;
+  }
 }/*# sourceMappingURL=bio.css.map */
