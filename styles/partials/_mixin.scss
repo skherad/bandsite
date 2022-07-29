@@ -11,9 +11,3 @@
         @content;
     }
 }
-
-@mixin flex-center($justify) {
-    display:flex;
-    align-items: center;
-    justify-content: ($justify);
-}

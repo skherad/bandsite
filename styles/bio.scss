@@ -7,11 +7,20 @@
 .hero {
     background-image:linear-gradient(#32323250, #32323250), url('../../assets/images/hero-bio.jpg');
     background-size: cover;
-    height: 60vw;
-    min-width: fit-content;
-    min-height: fit-content;
+    background-position: center;
+    height: 12rem;
     display: flex;
     align-items: center;
+
+    @include tablet {
+        height: 28rem;
+        background-position: bottom;
+    }
+
+    @include desktop {
+        height: 39rem;
+        background-position: top;
+    }
 
     &__title {
         margin: 0;
@@ -19,7 +28,6 @@
         font-size: 1.5rem;
         font-weight: 600;
         padding-left: 1rem ;
-        position: absolute;
 
         @include tablet {
             font-size: 3.75rem;
@@ -53,8 +61,7 @@
         @include tablet {
             font-size: 2.25rem;
             line-height: 2.75rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            margin:1rem 0 2rem;
         }
     }
 
@@ -64,7 +71,23 @@
         }
 
         @include desktop {
-            padding: 0 5rem;
+            padding: 0 6rem;
+        }
+    }
+
+    &__photo {
+        background-image: url('../assets/images/band.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 10.5rem;
+        margin-bottom: 1.5rem;
+
+        @include tablet {
+            height:19.5rem;
+        }
+
+        @include desktop {
+            height: 29rem;
         }
     }
 
@@ -82,8 +105,6 @@
         @include desktop {
             display: block;
             width: 75%;
-
-
         }
     }
 
@@ -100,18 +121,7 @@
             line-height: 2rem;
         }
     }
-    &__photo-container {
-        background-image: url('../assets/images/band.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 50vw;
-        margin-bottom: 1.5rem;
-
-        @include tablet {
-            height:40vw;
-        }
-    }
-
+    
     &__subheader {
         font-size: .875rem;
         line-height: 1.375rem;
@@ -135,12 +145,15 @@
         font-size: .8125rem;
         line-height: 1.125rem;
         font-weight: 400;
-        // margin-right: 0.6rem;
 
         @include tablet {
             font-size: .875rem;
             line-height: 1.375rem;
-            width: 48%;
+            width: 47%;
+        }
+
+        @include desktop {
+            width: 49%;
         }
     }
 
@@ -170,8 +183,6 @@
         @include tablet {
             font-size: 2.25rem;
             line-height: 2.75rem;
-            // margin-bottom: 1rem;
-            // margin-left: 1rem;
         }
     }
 
@@ -195,6 +206,10 @@
         @include tablet {
             width: 31%;
             margin-bottom: 1.5rem;
+        }
+
+        @include desktop {
+            width: 31.5%;
         }
     }
 }
