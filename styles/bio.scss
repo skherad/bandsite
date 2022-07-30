@@ -2,21 +2,18 @@
 @use './partials/variables' as *;
 @use './partials/mixin' as *;
 
-
 // hero styles
 .hero {
-    background-image:linear-gradient(#32323250, #32323250), url('../../assets/images/hero-bio.jpg');
+    background-image:linear-gradient(#32323250, #32323250), url('../assets/images/hero-bio.jpg');
     background-size: cover;
     background-position: center;
     height: 12rem;
     display: flex;
     align-items: center;
-
     @include tablet {
         height: 28rem;
         background-position: bottom;
     }
-
     @include desktop {
         height: 39rem;
         background-position: top;
@@ -28,28 +25,25 @@
         font-size: 1.5rem;
         font-weight: 600;
         padding-left: 1rem ;
-
         @include tablet {
             font-size: 3.75rem;
             line-height: 4.25rem;
             font-weight: 600;
             padding-left: 2rem;
         }
-
         @include desktop {
             padding-left: 8rem;
         }
     }
 }
 
+//about musician section styles
 .about {
     color: $primary-color-text--dark;
     padding: 1rem;
-
     @include tablet {
         padding: 2rem;
     }
-
     @include desktop {
         padding: 3rem 8rem;
     }
@@ -57,7 +51,6 @@
     &__header {
         font-weight: 600;
         margin:0 0 1rem;
-
         @include tablet {
             font-size: 2.25rem;
             line-height: 2.75rem;
@@ -69,7 +62,6 @@
         @include tablet {
         padding: 0 3rem;
         }
-
         @include desktop {
             padding: 0 6rem;
         }
@@ -81,27 +73,24 @@
         background-position: center;
         height: 10.5rem;
         margin-bottom: 1.5rem;
-
         @include tablet {
             height:19.5rem;
         }
-
         @include desktop {
             height: 29rem;
         }
     }
 
+    //band photo caption
     &__subtitle {
         font-size: .875rem;
         line-height: 1.375rem;
         font-weight: 600;
         font-style: normal;
-
         @include tablet {
             font-size: 1.3rem;
             line-height: 2rem;
         }
-
         @include desktop {
             display: block;
             width: 75%;
@@ -115,7 +104,6 @@
         font-style: normal;
         display: block;
         margin:0.6rem 0;
-
         @include tablet{
             font-size: 1rem;
             line-height: 2rem;
@@ -127,7 +115,6 @@
         line-height: 1.375rem;
         font-weight: 600;
         font-style: normal;
-
         @include tablet {
             font-size: 1.5rem;
             margin: 3rem 0 1rem;
@@ -145,13 +132,11 @@
         font-size: .8125rem;
         line-height: 1.125rem;
         font-weight: 400;
-
         @include tablet {
             font-size: .875rem;
             line-height: 1.375rem;
             width: 47%;
         }
-
         @include desktop {
             width: 49%;
         }
@@ -166,11 +151,9 @@
     background-color: $secondary-color-alt;
     display: flex;
     flex-direction: column;
-
     @include tablet {
         padding: 1rem 2rem;
     }
-
     @include desktop {
         padding: 1rem 8rem;
     }
@@ -179,7 +162,6 @@
         color: $primary-color-text--dark;
         font-weight: 600;
         line-height: 1.375rem;
-
         @include tablet {
             font-size: 2.25rem;
             line-height: 2.75rem;
@@ -191,7 +173,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-
         @include tablet {
             flex-direction: row;
             flex-wrap: wrap;
@@ -202,12 +183,10 @@
     &__photo {
         width: 100%;
         margin-bottom: 1rem;
-
         @include tablet {
             width: 31%;
             margin-bottom: 1.5rem;
         }
-
         @include desktop {
             width: 31.5%;
         }
