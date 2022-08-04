@@ -192,3 +192,71 @@
         }
     }
 }
+
+//comments section styles
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    &__card {
+        display: flex;
+        align-items: stretch;
+        border-bottom: 2px solid $secondary-color-divider;
+        // border-top: 2px solid $secondary-color-divider;
+
+    }
+    &__avatar {
+        background-color: $secondary-color-divider;
+        min-width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__form {
+        border-bottom: 2px solid $secondary-color-divider;
+        padding: 1rem;
+    }
+
+    &__button {
+        background-color: $primary-color-text--dark;
+        height: 2.5rem;
+        border-radius: .25rem;
+        border-color: $primary-color-text--dark;
+        color: $primary-color-text--light;
+        display: block;
+        width: 100%;
+    }
+    &__name {
+        width: 100%;
+        display: block;
+    }
+    &__comment {
+        width: 100%;
+        display: block;
+    }
+    &__title {
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+        color: $primary-color-text--dark;
+    }
+    &__time {
+        color: $secondary-color-text;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: 400;
+    }
+    &__text {
+        // color: $primary-color-text--dark;
+        font-size: .875rem;
+        line-height: 1.25rem;
+    }
+}
