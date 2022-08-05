@@ -212,7 +212,6 @@ body {
   background-image: linear-gradient(rgba(50, 50, 50, 0.3137254902), rgba(50, 50, 50, 0.3137254902)), url("../assets/images/hero-shows.jpg");
   background-size: cover;
   background-position: center;
-  height: 18.5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -220,13 +219,11 @@ body {
 }
 @media (min-width: 768px) {
   .hero {
-    height: 28rem;
     background-position: bottom;
   }
 }
 @media (min-width: 1280px) {
   .hero {
-    height: 39rem;
     background-position: top;
   }
 }
@@ -239,7 +236,7 @@ body {
 }
 @media (min-width: 768px) {
   .hero__album-title {
-    font-size: 3.75rem;
+    font-size: 1.5rem;
     line-height: 4.25rem;
     font-weight: 600;
     padding-left: 2rem;

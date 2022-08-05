@@ -199,20 +199,42 @@
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
+
+    &__form-container {
+        display: flex;
+        border-bottom: 2px solid $secondary-color-divider;
+
+    }
+
+    &__label {
+        color: $secondary-color-text;
+        font-size: .625rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+
+    }
+
     &__card {
         display: flex;
         align-items: stretch;
         border-bottom: 2px solid $secondary-color-divider;
-        // border-top: 2px solid $secondary-color-divider;
 
     }
     &__avatar {
         background-color: $secondary-color-divider;
-        min-width: 50px;
-        height: 50px;
+        min-width: 45px;
+        height: 45px;
         border-radius: 100%;
         margin-right: 1rem;
         margin-top: 1rem;
+        
+        &--form {
+            background-image: url(../assets/images/Mohan-muruge.jpg);
+            background-size: cover;
+            background-position: center;
+            margin-top: 0.5rem;
+        }
     }
     &__header {
         display: flex;
@@ -221,8 +243,8 @@
     }
 
     &__form {
-        border-bottom: 2px solid $secondary-color-divider;
-        padding: 1rem;
+        padding-bottom: 1rem;
+        width: 80%;
     }
 
     &__button {
@@ -236,11 +258,22 @@
     }
     &__name {
         width: 100%;
+        height: 2rem;
         display: block;
+        margin-bottom: 1rem;
+        background-color: $secondary-color-alt;
+        border-radius: .25rem;
+        border: $secondary-color-text 1px solid;
     }
     &__comment {
         width: 100%;
         display: block;
+        height: 5.25rem;
+        margin-bottom: 1rem;
+        background-color: $secondary-color-alt;
+        border-radius: .25rem;
+        border: $secondary-color-text 1px solid;
+        resize: none;
     }
     &__title {
         font-size: .875rem;
@@ -258,5 +291,15 @@
         // color: $primary-color-text--dark;
         font-size: .875rem;
         line-height: 1.25rem;
+    }
+
+    & ::placeholder {
+        color: $primary-color-text--dark;
+        font-family: 'AvenirNext'; 
+        padding: 0.5rem;
+    }
+
+    &__content {
+        width: 70vw;
     }
 }

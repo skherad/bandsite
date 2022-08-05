@@ -70,11 +70,18 @@
 
         <!-- comments section -->
         <section class="comment">
-            <form action="" class="comment__form">
-                <input type="text" class="comment__name">
-                <input type="text" class="comment__comment">
-                <button class="comment__button">COMMENT</button>
-            </form>
+            <h2 class="comment__header">Join the Conversation</h2>
+            <div class="comment__form-container">
+                <div class="comment__avatar comment__avatar--form"></div>
+                <form action="./index.html" class="comment__form">
+                    <label for="comment__name" class="comment__label">NAME</label>
+                    <input type="text" class="comment__name" name="commentName" placeholder="Enter your name"/>
+                    <label for="comment__comment" class="comment__label">COMMENT</label>
+                    <textarea type="text" class="comment__comment" name="commentComment" placeholder="Add a new comment"></textarea>
+                    <button class="comment__button">COMMENT</button>
+                </form>
+            </div>
+            <section class="comment__container"></section>
         </section>
 
     </main>

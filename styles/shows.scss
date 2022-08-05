@@ -7,17 +7,17 @@
     background-image:linear-gradient(#32323250, #32323250), url('../assets/images/hero-shows.jpg');
     background-size: cover;
     background-position: center;
-    height: 18.5rem;
+    // height: 18.5rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 1rem;
     @include tablet {
-        height: 28rem;
+        // height: 28rem;
         background-position: bottom;
     }
     @include desktop {
-        height: 39rem;
+        // height: 39rem;
         background-position: top;
     }
     &__album-title {
@@ -27,7 +27,7 @@
         font-weight: 400;
         width: 70%;
         @include tablet {
-            font-size: 3.75rem;
+            font-size: 1.5rem;
             line-height: 4.25rem;
             font-weight: 600;
             padding-left: 2rem;
