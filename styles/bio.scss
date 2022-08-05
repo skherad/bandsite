@@ -200,17 +200,30 @@
     justify-content: center;
     padding: 1rem;
 
+    @include tablet {
+        padding: 1rem 2rem;
+    }
+
+    @include desktop {
+        padding: 1rem 8rem;
+    }
+
     &__form-container {
         display: flex;
         border-bottom: 2px solid $secondary-color-divider;
-
+        @include tablet {
+            margin: 1rem 3rem;
+        }
+        @include desktop {
+            margin: 1rem 17rem;
+        }
     }
 
     &__label {
         color: $secondary-color-text;
         font-size: .625rem;
         font-weight: 600;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
         display: block;
 
     }
@@ -223,28 +236,40 @@
     }
     &__avatar {
         background-color: $secondary-color-divider;
-        min-width: 45px;
-        height: 45px;
-        border-radius: 100%;
+        min-width: 36px;
+        height: 36px;
+        border-radius: 50%;
         margin-right: 1rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         
+        @include tablet {
+            min-width: 48px;
+            height: 48px;
+        }
         &--form {
             background-image: url(../assets/images/Mohan-muruge.jpg);
             background-size: cover;
             background-position: center;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
     }
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include tablet {
+            font-size: 2.25rem;
+            color: $primary-color-text--dark;
+            font-weight: 600;
+        }
     }
 
     &__form {
         padding-bottom: 1rem;
-        width: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     &__button {
@@ -255,15 +280,29 @@
         color: $primary-color-text--light;
         display: block;
         width: 100%;
+
+        @include tablet {
+            width: 9.375rem;
+            align-self: flex-end;
+            padding: 0 2rem;
+        }
     }
     &__name {
         width: 100%;
-        height: 2rem;
+        height: 2.25rem;
         display: block;
         margin-bottom: 1rem;
         background-color: $secondary-color-alt;
         border-radius: .25rem;
         border: $secondary-color-text 1px solid;
+        padding: 12px;
+
+        @include tablet {
+            height: 3rem;
+            padding: 16px;
+        }
+
+       
     }
     &__comment {
         width: 100%;
@@ -274,6 +313,12 @@
         border-radius: .25rem;
         border: $secondary-color-text 1px solid;
         resize: none;
+        padding: 12px;
+
+        @include tablet {
+            padding: 16px;
+        }
+
     }
     &__title {
         font-size: .875rem;
@@ -291,15 +336,27 @@
         // color: $primary-color-text--dark;
         font-size: .875rem;
         line-height: 1.25rem;
+        word-wrap: break-word;
+
     }
 
     & ::placeholder {
         color: $primary-color-text--dark;
         font-family: 'AvenirNext'; 
-        padding: 0.5rem;
     }
 
     &__content {
         width: 70vw;
+    }
+
+    &__container{
+        
+        @include tablet {
+        padding: 0 3rem;
+        }
+
+        @include desktop {
+            padding: 0 17rem;
+        }
     }
 }
