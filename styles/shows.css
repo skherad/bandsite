@@ -279,6 +279,12 @@ body {
   padding: 1rem;
   border-bottom: 1px solid #E1E1E1;
 }
+.show__card--hover {
+  background-color: #fafafa;
+}
+.show__card--selected {
+  background-color: #AFAFAF;
+}
 .show__label-mobile {
   color: #AFAFAF;
   font-size: 0.625rem;

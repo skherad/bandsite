@@ -102,3 +102,30 @@ for(let i=0; i < showsArray.length; i++) {
 
 }
 
+let showCardEvents = document.querySelectorAll(".show__card");
+
+showCardEvents.forEach(showCardEvent => {
+    showCardEvent.addEventListener("mouseenter", (event) => {
+        event.target.classList.add("show__card--hover")
+    })
+} )
+    
+
+
+showCardEvents.forEach(showCardEvent => {
+    showCardEvent.addEventListener("mouseleave", (event) => {
+        event.target.classList.remove("show__card--hover")
+    })
+} )
+
+showCardEvents.forEach(showCardEvent => {
+    showCardEvent.addEventListener("click", (event) => {
+
+        showCardEvents.forEach((card) => {
+            card.classList.remove("show__card--selected");
+        })
+        event.currentTarget.classList.add("show__card--selected");
+    })
+
+})
+

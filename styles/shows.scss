@@ -67,6 +67,13 @@
     padding: 1rem;
     border-bottom: 1px solid $secondary-color-divider;
 
+        &--hover {
+            background-color:$secondary-color-alt;
+        }
+
+        &--selected {
+            background-color: $secondary-color-text;
+        }
     }
 
     &__label-mobile {
