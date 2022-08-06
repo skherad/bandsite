@@ -102,6 +102,7 @@ for(let i=0; i < showsArray.length; i++) {
 
 }
 
+
 let showCardEvents = document.querySelectorAll(".show__card");
 
 showCardEvents.forEach(showCardEvent => {
