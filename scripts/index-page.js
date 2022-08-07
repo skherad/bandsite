@@ -100,10 +100,23 @@ function commentHandler() {
     commentForm.reset();
 }
 
+// function submitError() {
+//     let newName = event.target.commentName.value;
+//     let newComment = event.target.commentComment.value;
+
+//     if(newName === "") {
+//         commentName.style.border = "2px solid red";
+//     }
+// }
+
 //event listener for the form to envoke display comment function
 commentForm.addEventListener("submit", (event) => 
     {
     event.preventDefault();
+
+    // submitError();
+
     displayComment(commentHandler());
     }
 )
+
