@@ -71,30 +71,28 @@ let displayComment = (newComments) => {
 //envoke the function to create the 3 default comments
 displayComment(commentsArray)
 
-
-//timestamp to date format mm/dd/yyyy function
-let formatDate = (timestamp) => {
-    let dateValue=timestamp.getDate().toString().padStart(2,'0');
-    let month = timestamp.getMonth()+1;
-    let monthValue = month.toString().padStart(2,'0');
-    let yearValue = timestamp.getFullYear().toString();
-    return monthValue + "/" + dateValue + "/" + yearValue;
-}
-
 //----New Comments----//
 //extract data input by user in comment section
 let commentHandler = () => {
     let newName = event.target.commentName.value;
     let newComment = event.target.commentComment.value;
     let timeStamp = new Date();
-    let newDate = formatDate(timeStamp);
 
+    //timestamp to date format mm/dd/yyyy function
+    let newDate = timeStamp.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+
+    // create new comment object
     let newCommentObj = {
         date: newDate,
         fullName: newName,
         content: newComment,
     }
 
+    //add new comment object to the begining of the original array
     commentsArray.unshift(newCommentObj);
     commentForm.reset();
 }
@@ -103,7 +101,12 @@ let commentHandler = () => {
 commentForm.addEventListener("submit", (event) => 
     {
     event.preventDefault();
+    
+    // removes error class modifiers on resubmit
+    event.target.commentComment.classList.remove("comment__comment--error");
+    event.target.commentName.classList.remove("comment__name--error");
 
+        // condition to have non empty values in input
         if (event.target.commentName.value === "" && event.target.commentComment.value === "") {
             event.target.commentName.classList.add("comment__name--error");
             event.target.commentComment.classList.add("comment__comment--error");
@@ -115,11 +118,8 @@ commentForm.addEventListener("submit", (event) =>
             event.target.commentComment.classList.add("comment__comment--error");
 
         } else {
-            event.target.commentComment.classList.remove("comment__comment--error");
-            event.target.commentName.classList.remove("comment__name--error");
             displayComment(commentHandler());
         }
-
     }
 )
 
