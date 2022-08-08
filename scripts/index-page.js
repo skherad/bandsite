@@ -19,7 +19,7 @@ commentsArray = [
 ]
 
 //function that creates comment card elements by taking in an array of objects
-function displayComment(newComments) {
+let displayComment = (newComments) => {
     commentSection.innerHTML = null;
     for (let i=0; i< commentsArray.length; i++) {
         
@@ -73,7 +73,6 @@ displayComment(commentsArray)
 
 
 //timestamp to date format mm/dd/yyyy function
-
 let formatDate = (timestamp) => {
     let dateValue=timestamp.getDate().toString().padStart(2,'0');
     let month = timestamp.getMonth()+1;
@@ -84,7 +83,7 @@ let formatDate = (timestamp) => {
 
 //----New Comments----//
 //extract data input by user in comment section
-function commentHandler() {
+let commentHandler = () => {
     let newName = event.target.commentName.value;
     let newComment = event.target.commentComment.value;
     let timeStamp = new Date();
@@ -100,23 +99,27 @@ function commentHandler() {
     commentForm.reset();
 }
 
-// function submitError() {
-//     let newName = event.target.commentName.value;
-//     let newComment = event.target.commentComment.value;
-
-//     if(newName === "") {
-//         commentName.style.border = "2px solid red";
-//     }
-// }
-
 //event listener for the form to envoke display comment function
 commentForm.addEventListener("submit", (event) => 
     {
     event.preventDefault();
 
-    // submitError();
+        if (event.target.commentName.value === "" && event.target.commentComment.value === "") {
+            event.target.commentName.classList.add("comment__name--error");
+            event.target.commentComment.classList.add("comment__comment--error");
 
-    displayComment(commentHandler());
+        } else if(event.target.commentName.value === "") {
+            event.target.commentName.classList.add("comment__name--error");
+
+        } else if (event.target.commentComment.value === "") { 
+            event.target.commentComment.classList.add("comment__comment--error");
+
+        } else {
+            event.target.commentComment.classList.remove("comment__comment--error");
+            event.target.commentName.classList.remove("comment__name--error");
+            displayComment(commentHandler());
+        }
+
     }
 )
 
