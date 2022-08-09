@@ -63,6 +63,11 @@
     }
 }
 
+
+// .show__card:hover {
+//     background-color:$secondary-color-alt;
+// }
+
 // shows section styles
 .show {
     padding-bottom: 1rem;
@@ -117,11 +122,15 @@
             align-items: center;
         }
 
-        &--hover {
+        &:hover {
             background-color:$secondary-color-alt;
         }
-
+        
         &--selected {
+            background-color: $secondary-color-text;
+        }
+
+        &--selected:hover {
             background-color: $secondary-color-text;
         }
     }
@@ -168,3 +177,4 @@
         }
     }
 }
+

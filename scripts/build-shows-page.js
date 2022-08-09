@@ -104,19 +104,6 @@ for(let i=0; i < showsArray.length; i++) {
 
 let showCardEvents = document.querySelectorAll(".show__card");
 
-// event listener for hover - mouse enter
-showCardEvents.forEach(showCardEvent => {
-    showCardEvent.addEventListener("mouseenter", (event) => {
-        event.target.classList.add("show__card--hover")
-    })
-} )
-// event listener for hover - mouse leave
-showCardEvents.forEach(showCardEvent => {
-    showCardEvent.addEventListener("mouseleave", (event) => {
-        event.target.classList.remove("show__card--hover")
-    })  
-} )
-
 
 // event listener for selected row
 showCardEvents.forEach(showCardEvent => {

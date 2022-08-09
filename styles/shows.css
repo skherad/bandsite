@@ -343,10 +343,13 @@ body {
     align-items: center;
   }
 }
-.show__card--hover {
+.show__card:hover {
   background-color: #fafafa;
 }
 .show__card--selected {
+  background-color: #AFAFAF;
+}
+.show__card--selected:hover {
   background-color: #AFAFAF;
 }
 .show__label-mobile {
