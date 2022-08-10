@@ -62,14 +62,33 @@ let displayComment = (commentsArray) => {
 commentForm.addEventListener("submit", (event)=>{
     event.preventDefault();
 
-    let newName = event.target.commentName.value;
-    let newComment = event.target.commentComment.value;
+    let newName = event.target.commentName;
+    let newComment = event.target.commentComment;
 
-    // create new comment object
-    let newCommentObj = {
-        name: newName,
-        comment: newComment,
-    }
+
+    // removes error class modifiers on resubmit
+    event.target.commentComment.classList.remove("comment__comment--error");
+    event.target.commentName.classList.remove("comment__name--error");
+
+    if(newComment.value === "" && newName.value === "") {
+        
+        newName.classList.add("comment__name--error");
+        newComment.classList.add("comment__comment--error");
+
+    } else if(newName.value === "") {
+
+        newName.classList.add("comment__name--error");
+
+    } else if(newComment.value === "") {
+        
+        newComment.classList.add("comment__comment--error");
+
+    } else { 
+        // create new comment object
+        let newCommentObj = {
+            name: newName.value,
+            comment: newComment.value,
+        }
 
     // post new comment to api
     axios.post(commentUrl, newCommentObj)
@@ -85,9 +104,11 @@ commentForm.addEventListener("submit", (event)=>{
             displayComment(sortedArray)
         })
     })
+        // reset form
+        commentForm.reset();
+    }
 
-    // reset form
-    commentForm.reset();
+
 
 })
 
