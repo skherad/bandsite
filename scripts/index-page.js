@@ -2,26 +2,12 @@ let commentsContainer = document.querySelector(".comment");
 let commentSection = document.querySelector(".comment__container");
 let commentForm = document.querySelector(".comment__form");
 
-
-// commentsArray = [
-//     {   date: "02/17/2021",
-//         fullName: "Connor Walton",
-//         content: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves     reverence. Let us appreciate this for what it is and what it contains."
-//     },
-//     {   date: "01/09/2021",
-//         fullName: "Emilie Beach",
-//         content: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-//     },
-//     {   date: "12/20/2020",
-//         fullName: "Miles Acosta",
-//         content: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-//     },
-// ]
+let commentUrl="https://project-1-api.herokuapp.com/comments?api_key=4b1f3cfb-aeb7-43a8-9182-727c09dafdae"
 
 //function that creates comment card elements by taking in an array of objects
-let displayComment = (newComments) => {
+let displayComment = (commentsArray) => {
     commentSection.innerHTML = null;
-    for (let i=0; i< newComments.length; i++) {
+    for (let i=0; i< commentsArray.length; i++) {
         
         // create comment card and make child of comments section
         let commentCard = document.createElement("div");
@@ -49,110 +35,68 @@ let displayComment = (newComments) => {
                     commentHeader.appendChild(commentTitle);
                     commentTitle.classList.add("comment__title");
 
-                    commentTitle.innerText=newComments[i].name;
+                    commentTitle.innerText=commentsArray[i].name;
 
                     //TODO CREATE TIMESTAMP
                     let commentTime = document.createElement("p");
                     commentHeader.appendChild(commentTime);
                     commentTime.classList.add("comment__time");
+                    
+                    // let timeStamp = newComments[i].timestamp.toLocaleDateString();
+                    //???????????????????????
 
-
-                    commentTime.innerText=newComments[i].timestamp;
+                    commentTime.innerText=commentsArray[i].timestamp;
                     
                 //create card text and make child of comment content 
                 let commentText = document.createElement('p');
                 commentContent.appendChild(commentText);
                 commentText.classList.add("comment__text");
 
-                commentText.innerText=newComments[i].comment;
+                commentText.innerText=commentsArray[i].comment;
     }
 }
 
-//envoke the function to create the 3 default comments
-// displayComment(commentsArray)
+// post new comment
+commentForm.addEventListener("submit", (event)=>{
+    event.preventDefault();
 
-//----New Comments----//
-//extract data input by user in comment section
-let commentHandler = () => {
     let newName = event.target.commentName.value;
     let newComment = event.target.commentComment.value;
-    let timeStamp = new Date();
-
-    //timestamp to date format mm/dd/yyyy function
-    let newDate = timeStamp.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      })
 
     // create new comment object
     let newCommentObj = {
-        timestamp: newDate,
         name: newName,
         comment: newComment,
     }
 
-    //add new comment object to the begining of the original array
-    commentsArray.unshift(newCommentObj);
+    // post new comment to api
+    axios.post(commentUrl, newCommentObj)
+    .then((result) => {
+        console.log(result)
+        
+        // get updated array of comments
+        axios.get(commentUrl).then((response) => {
+            console.log(response);
+            let sortedArray = response.data.sort((a,b) => {
+                return b.timestamp - a.timestamp;
+            })
+            displayComment(sortedArray)
+        })
+    })
+
+    // reset form
     commentForm.reset();
-}
-
-//event listener for the form to envoke display comment function
-// commentForm.addEventListener("submit", (event) => 
-//     {
-//     event.preventDefault();
-    
-//     // removes error class modifiers on resubmit
-//     event.target.commentComment.classList.remove("comment__comment--error");
-//     event.target.commentName.classList.remove("comment__name--error");
-
-//         // condition to have non empty values in input
-//         if (event.target.commentName.value === "" && event.target.commentComment.value === "") {
-//             event.target.commentName.classList.add("comment__name--error");
-//             event.target.commentComment.classList.add("comment__comment--error");
-
-//         } else if(event.target.commentName.value === "") {
-//             event.target.commentName.classList.add("comment__name--error");
-
-//         } else if (event.target.commentComment.value === "") { 
-//             event.target.commentComment.classList.add("comment__comment--error");
-
-//         } else {
-//             displayComment(commentHandler());
-//         }
-//     }
-// )
-
-axios.get("https://project-1-api.herokuapp.com/comments?api_key=4b1f3cfb-aeb7-43a8-9182-727c09dafdae")
-.then((response) => {
-    // console.log(response.data)
-    const commentsArray = response.data;
-    console.log(commentsArray)
-    displayComment(commentsArray)
-
-    commentForm.addEventListener("submit", (event) => 
-    {
-    event.preventDefault();
-    
-    // removes error class modifiers on resubmit
-    event.target.commentComment.classList.remove("comment__comment--error");
-    event.target.commentName.classList.remove("comment__name--error");
-
-        // condition to have non empty values in input
-        if (event.target.commentName.value === "" && event.target.commentComment.value === "") {
-            event.target.commentName.classList.add("comment__name--error");
-            event.target.commentComment.classList.add("comment__comment--error");
-
-        } else if(event.target.commentName.value === "") {
-            event.target.commentName.classList.add("comment__name--error");
-
-        } else if (event.target.commentComment.value === "") { 
-            event.target.commentComment.classList.add("comment__comment--error");
-
-        } else {
-            displayComment(commentHandler());
-        }
-    }
-)
 
 })
+
+// initial default 3 comments
+axios.get(commentUrl)
+.then((response) => {
+    let commentsArray = response.data.sort((a,b) => {
+        return b.timestamp - a.timestamp;
+    });
+    displayComment(commentsArray)
+})
+
+
+
