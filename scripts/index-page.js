@@ -42,10 +42,12 @@ let displayComment = (commentsArray) => {
                     commentHeader.appendChild(commentTime);
                     commentTime.classList.add("comment__time");
                     
-                    // let timeStamp = newComments[i].timestamp.toLocaleDateString();
-                    //???????????????????????
-
-                    commentTime.innerText=commentsArray[i].timestamp;
+                    commentTime.innerText=
+                    new Date(commentsArray[i].timestamp).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                      });
                     
                 //create card text and make child of comment content 
                 let commentText = document.createElement('p');
@@ -97,6 +99,3 @@ axios.get(commentUrl)
     });
     displayComment(commentsArray)
 })
-
-
-

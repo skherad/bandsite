@@ -1,51 +1,20 @@
-let showContainer = document.querySelector(".show");
+let showUrl="https://project-1-api.herokuapp.com/showdates?api_key=4b1f3cfb-aeb7-43a8-9182-727c09dafdae"
 
-//create shows array
-let showsArray = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Frnacisco, CA",
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Frnacisco, CA",
-    },    
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Frnacisco, CA",
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency",
-        location: "San Frnacisco, CA",
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Frnacisco, CA",
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Frnacisco, CA",
-    },
-]
+let showContainer = document.querySelector(".show");
 
 //desktop & tablet table header
 let labelArray = ["DATE", "VENUE", "LOCTION"];
 
-for (let i=0 ; i < labelArray.length ; i++) {
+labelArray.forEach((label) => {
     let dateLabelNoMobile = document.createElement("div");
     dateLabelNoMobile.classList.add("show__label-nonmobile");
-    dateLabelNoMobile.innerText = labelArray[i];
+    dateLabelNoMobile.innerText = label;
     showContainer.appendChild(dateLabelNoMobile);
-}
+})
 
 
-//create the elements for show cards
+//function to display show data
+let displayShow = (showsArray) => {
 for(let i=0; i < showsArray.length; i++) {
     //shows card element
     let showCard = document.createElement("div");
@@ -62,22 +31,26 @@ for(let i=0; i < showsArray.length; i++) {
         let dateValue = document.createElement("p");
         dateValue.classList.add("show__text", "show__text--bold");
         showCard.appendChild(dateValue);
+        // convert date format to mm/dd/yyyy
+        dateValue.innerText = new Date(showsArray[i].date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
 
-        dateValue.innerText = showsArray[i].date;
 
+        //paragraph for place label - mobile
+        let placeLabel = document.createElement("p");
+        placeLabel.classList.add("show__label-mobile");
+        placeLabel.innerText = "place";
+        showCard.appendChild(placeLabel);
 
-        //paragraph for venue label - mobile
-        let venueLabel = document.createElement("p");
-        venueLabel.classList.add("show__label-mobile");
-        venueLabel.innerText = "VENUE";
-        showCard.appendChild(venueLabel);
+        //paragraph for show place values
+        let placeValue = document.createElement("p");
+        placeValue.classList.add("show__text");
+        showCard.appendChild(placeValue);
 
-        //paragraph for show venue values
-        let venueValue = document.createElement("p");
-        venueValue.classList.add("show__text");
-        showCard.appendChild(venueValue);
-
-        venueValue.innerText = showsArray[i].venue;
+        placeValue.innerText = showsArray[i].place;
 
 
         //paragraph for location label - mobile
@@ -99,21 +72,24 @@ for(let i=0; i < showsArray.length; i++) {
         showCard.appendChild(ticketBtn);
 
         ticketBtn.innerText = "BUY TICKETS"
-}
+}}
 
 
-let showCardEvents = document.querySelectorAll(".show__card");
 
+// get shows data from api
+axios.get(showUrl).then((response) => {
+    console.log(response.data)
+    displayShow(response.data)
 
-// event listener for selected row
-showCardEvents.forEach(showCardEvent => {
-    showCardEvent.addEventListener("click", (event) => {
+    let showCardEvents = document.querySelectorAll(".show__card");
+    // event listener for selected row
+    showCardEvents.forEach(showCardEvent => {
+        showCardEvent.addEventListener("click", (event) => {
 
-        showCardEvents.forEach((card) => {
-            card.classList.remove("show__card--selected");
+            showCardEvents.forEach((card) => {
+                card.classList.remove("show__card--selected");
+            })
+            event.currentTarget.classList.add("show__card--selected");
         })
-        event.currentTarget.classList.add("show__card--selected");
     })
-
 })
-
