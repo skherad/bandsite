@@ -7,8 +7,8 @@ let commentUrl="https://project-1-api.herokuapp.com/comments?api_key=4b1f3cfb-ae
 //function that creates comment card elements by taking in an array of objects
 let displayComment = (commentsArray) => {
     commentSection.innerHTML = null;
-    for (let i=0; i< commentsArray.length; i++) {
-        
+    
+    commentsArray.forEach((comment) => {
         // create comment card and make child of comments section
         let commentCard = document.createElement("div");
         commentSection.appendChild(commentCard);
@@ -35,7 +35,7 @@ let displayComment = (commentsArray) => {
                     commentHeader.appendChild(commentTitle);
                     commentTitle.classList.add("comment__title");
 
-                    commentTitle.innerText=commentsArray[i].name;
+                    commentTitle.innerText=comment.name;
 
                     //TODO CREATE TIMESTAMP
                     let commentTime = document.createElement("p");
@@ -43,20 +43,31 @@ let displayComment = (commentsArray) => {
                     commentTime.classList.add("comment__time");
                     
                     commentTime.innerText=
-                    new Date(commentsArray[i].timestamp).toLocaleDateString("en-US", {
+                    new Date(comment.timestamp).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "2-digit",
                         day: "2-digit",
-                      });
+                    });
                     
                 //create card text and make child of comment content 
                 let commentText = document.createElement('p');
                 commentContent.appendChild(commentText);
                 commentText.classList.add("comment__text");
 
-                commentText.innerText=commentsArray[i].comment;
-    }
+                commentText.innerText=comment.comment;
+    })
 }
+
+// initial default 3 comments
+axios.get(commentUrl)
+.then((response) => {
+    //sort comments
+    let commentsArray = response.data.sort((a,b) => {
+        return b.timestamp - a.timestamp;
+    });
+    //display comments
+    displayComment(commentsArray)
+})
 
 // post new comment
 commentForm.addEventListener("submit", (event)=>{
@@ -98,25 +109,15 @@ commentForm.addEventListener("submit", (event)=>{
         // get updated array of comments
         axios.get(commentUrl).then((response) => {
             console.log(response);
+            // sort updated array of comments
             let sortedArray = response.data.sort((a,b) => {
                 return b.timestamp - a.timestamp;
             })
+            //display updated array of comments
             displayComment(sortedArray)
         })
     })
         // reset form
         commentForm.reset();
     }
-
-
-
-})
-
-// initial default 3 comments
-axios.get(commentUrl)
-.then((response) => {
-    let commentsArray = response.data.sort((a,b) => {
-        return b.timestamp - a.timestamp;
-    });
-    displayComment(commentsArray)
 })
